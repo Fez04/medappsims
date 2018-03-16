@@ -1,3 +1,46 @@
-<h1>You accesed this page via GET request</h1>
 
-<p>ID passed: {{ output }}</p>
+<h2 class="page-header">ID passed: {{ output }}</h2>
+
+    <form class="form-inline" action="index.html" method="post">
+        <div class="form-row align-items-center">
+            <div class="form-group col-auto">
+              <label for="medTime">Medication Times</label>
+              <input type="text" name="medTime" id="medTime" value="" placeholder="8am, 12pm, 5pm, etc.">
+              <input class="btn btn-primary btn-add-time" type="submit" value="Add" name="add-time">
+            </div>
+            <div class="form-group col-auto">
+              <label for="medAdd">Add Medicine</label>
+              <input type="text" name="AddMed" value="" id="medAdd" placeholder="Your Meds Here">
+              <input class="btn btn-primary btn-add-med" type="submit" value="Add" name="add-med">
+            </div>
+        </div>
+      <!-- </div> -->
+    </form>
+    <!-- <div class="row"> -->
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="timeList">
+          <li>
+            <button class="btn btn-block med-list-button" type="submit" value="8am" name="button">8am</button>
+          </li>
+          <li>
+            <button class="btn btn-block med-list-button" type="submit" value="12pm" name="button">12pm</button>
+          </li>
+          <li>
+            <button class="btn btn-block med-list-button" type="submit" value="5pm" name="button">5pm</button>
+          </li>
+        </ul>
+      </div>
+    <!-- </div> -->
+    <div class="col-xs-6">
+      <ul class="medList">
+        <li>
+          <button class="btn btn-block med-list-button" type="submit" value="Vicodin" name="button">Vicodin</button>
+        </li>
+        <li>
+          <button class="btn btn-block med-list-button" type="submit" value="Multi-vitamin" name="button">Multi-vitamin</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
