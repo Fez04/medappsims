@@ -11,6 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
+
 mongoose.connect('mongodb://fez04:Compaq04@ds257858.mlab.com:57858/medalert');
 var db = mongoose.connection;
 
@@ -19,6 +20,11 @@ var users = require('./routes/users');
 
 // Init App
 var app = express();
+
+
+
+
+
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -33,12 +39,39 @@ app.use(cookieParser());
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.get('/testtwilio', function(req, res){
+	client.messages.create({
+		to: '+15594958657',
+		from: '+15593776921',
+		body: 'take yo med suka'
+	}, function(err, data){
+		if(err)
+			console.log(err);
+		console.log(data);
+	});
+});
+
+
+
+
+
 // Express Session
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: true
 }));
+
+
+
+
+
+
+
+
+
+
 
 // Passport init
 app.use(passport.initialize());
