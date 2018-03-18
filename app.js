@@ -10,22 +10,15 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-
+var client = require('twilio')('AC6807bd0e024065245ad0fbe34edfbd21','ed2db48f4bc76c6b89b7cbd75f0297c4');
 
 mongoose.connect('mongodb://fez04:Compaq04@ds257858.mlab.com:57858/medalert');
 var db = mongoose.connection;
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 // Init App
 var app = express();
-
-
-
-
-
-
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
@@ -39,7 +32,7 @@ app.use(cookieParser());
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//twilio
 app.get('/testtwilio', function(req, res){
 	client.messages.create({
 		to: '+15594958657',
@@ -52,26 +45,12 @@ app.get('/testtwilio', function(req, res){
 	});
 });
 
-
-
-
-
 // Express Session
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: true
 }));
-
-
-
-
-
-
-
-
-
-
 
 // Passport init
 app.use(passport.initialize());
@@ -106,8 +85,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
-
-
 
 app.use('/', routes);
 app.use('/users', users);

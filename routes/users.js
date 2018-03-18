@@ -19,6 +19,19 @@ router.get('/profile', function(req, res){
 	res.render('profile');
 });
 
+
+
+
+// Profile
+router.get('/profile/:id', function(req, res){
+	res.render('profile', {output: req.params.id});
+});
+
+router.post('/profile/submit', function(req, res){
+	var id = req.body.id;
+	res.redirect('/users/profile/' + id);
+});
+
 // Register User
 router.post('/register', function(req, res){
 	var name = req.body.name;
