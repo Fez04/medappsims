@@ -14,7 +14,7 @@
     "body-parser": "*",
     "connect-flash": "*",
     "cookie-parser": "^1.4.1",
-    "express": "^4.16.2",
+    "express": "*",
     "express-handlebars": "*",
     "express-messages": "*",
     "express-session": "*",
@@ -23,7 +23,6 @@
     "mongoose": "*",
     "passport": "*",
     "passport-http": "*",
-    "passport-local": "*",
-    "twilio": "^3.13.1"
+    "passport-local": "*"
   }
 }
