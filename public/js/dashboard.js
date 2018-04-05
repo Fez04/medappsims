@@ -20,7 +20,7 @@ function addPatient(e) {
     patientBtn.setAttribute("type", "submit");
     patientBtn.setAttribute("value", addInput);
     patientBtn.setAttribute("name", "id");
-    patientForm.setAttribute("action", "users/submit");
+    patientForm.setAttribute("action", "users/submit",);
     patientForm.setAttribute("method", "post");
 
     if (addInput === "") {

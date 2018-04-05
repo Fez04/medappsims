@@ -10,7 +10,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var client = require('twilio')('AC6807bd0e024065245ad0fbe34edfbd21','ed2db48f4bc76c6b89b7cbd75f0297c4');
+var client = require('twilio')('AC6317a80196cd0ffbef6cc52095a65a93','97d8ab2605ec858af81f18eb58096c92');
 
 mongoose.connect('mongodb://fez04:Compaq04@ds257858.mlab.com:57858/medalert');
 var db = mongoose.connection;
@@ -33,15 +33,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //twilio
-app.get('/testtwilio', function(req, res){
+app.post('/testtwilio', function(req, res){
 	client.messages.create({
-		to: '+15594958657',
-		from: '+15593776921',
-		body: 'take yo med suka'
+		to: '+15592935153',
+		from: '+15597853046',
+		body: 'Time for meds'
 	}, function(err, data){
-		if(err)
-			console.log(err);
-		console.log(data);
+		if(err) console.log(err);
+		return res.redirect('/users');
 	});
 });
 

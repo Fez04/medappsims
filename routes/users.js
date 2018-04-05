@@ -32,6 +32,14 @@ router.post('/submit', function(req, res){
 	res.redirect('/users/' + id);
 });
 
+router.get('/:testtwilio', function(req, res){
+	res.render('testtwilio', {output: req.params.id});
+});
+
+router.post('/testtwilio', function(req, res){
+	res.redirect('/testtwilio');
+});
+
 // Register User
 router.post('/register', function(req, res){
 	var name = req.body.name;
@@ -39,6 +47,9 @@ router.post('/register', function(req, res){
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+	var profileName = req.body.profileName;
+	var time = req.body.time;
+	var med = req.body.med;
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
