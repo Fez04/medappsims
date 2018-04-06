@@ -6,7 +6,7 @@ html {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url(" https://www.walldevil.com/wallpapers/a92/alone-wallpaper-blur-cloud-sky-wallpapers-papers.jpg");
+  background-image: url("https://www.walldevil.com/wallpapers/a92/alone-wallpaper-blur-cloud-sky-wallpapers-papers.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -212,7 +212,7 @@ margin-right: -14px;
   color: #337ab7;
 }
 
-#medAdd {
+#addMed {
   width: 100%;
 }
 
